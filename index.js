@@ -1,3 +1,4 @@
+/* Example
 const paragraphData = $("#data")
 const currencyCode = $("#curreny-code")
 const currencyName = $("#curreny-name")
@@ -18,4 +19,4 @@ fetch('https://restcountries.eu/rest/v2/alpha/ind')
     currencyCode.val(currency.code)
     currencyName.val(currency.name)
     currencySymbol.val(currency.symbol)
-  });
+  }); */
