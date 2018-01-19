@@ -1,4 +1,3 @@
-
 const mainRow = $("#main-row")
 const buttonSearch = $("#buttonSearch")
 const inputType = $("#inputType")
@@ -30,7 +29,6 @@ function searchMovie(title = null, type = null, year = null) {
   console.log(fetchUrl);
   fetch(fetchUrl)
     .then(response => response.json()).then(data => {
-
       var searchData = data.Search;
       // console.log(typeof searchData);
       // console.log(searchData.length);
@@ -50,13 +48,12 @@ function searchMovie(title = null, type = null, year = null) {
                   <div class="card">
                     <img class="card-img-top custom-res p-2" src=${poster} alt="Card image cap">
                     <div class="card-block">
-                      <h4 class="card-title pl-2">${title} </h4>
-                      <p class="card-text pl-2">Release ${type  }: ${year}</p>
-                      <a href="#" class="btn btn-primary  ml-2 mb-2">Go somewhere</a>
+                      <h4 class="card-title pl-2">${title}</h4>
+                      <p class="card-text pl-2">Release ${type}: ${year}</p>
+                      <a href="#" class="btn btn-primary ml-2 mb-2">Learn More</a>
                     </div>
                   </div>
-                </div>
-                `
+                </div>`
       }
       mainRow.html(innerHtml)
     });
@@ -67,5 +64,5 @@ buttonSearch.click(function() {
   var type = inputType.val()
   var year = inputYear.val()
 
-  searchMovie(title,type,year)
+  searchMovie(title, type, year)
 });
