@@ -5,11 +5,11 @@ const inputType = $("#inputType")
 const inputYear = $("#inputYear")
 const inputTitle = $("#inputTitle")
 
+
 function searchMovie(title = null, type = null, year = null) {
   var fetchUrl = `http://www.omdbapi.com/?`
   var isFirstParam = true
   var innerHtml = ``;
-
 
   if (title !== null && title !== "") {
     fetchUrl = fetchUrl + `s=${title}`
@@ -17,22 +17,24 @@ function searchMovie(title = null, type = null, year = null) {
   }
   if (type !== null && type !== "") {
     (isFirstParam) ? (fetchUrl = fetchUrl + `type=${type}`) : (fetchUrl = fetchUrl + `&type=${type}`)
+    isFirstParam = false;
   }
   if (year !== null && year !== "") {
     (isFirstParam) ? (fetchUrl = fetchUrl + `y=${year}`) : (fetchUrl = fetchUrl + `&y=${year}`)
-
+    isFirstParam = false;
   }
+
 
   fetchUrl = fetchUrl + `&apikey=fbe6dc54&`
   fetchUrl.replace(" ", "+")
-
+  console.log(fetchUrl);
   fetch(fetchUrl)
     .then(response => response.json()).then(data => {
 
       var searchData = data.Search;
-      console.log(typeof searchData);
-      console.log(searchData.length);
-      console.log(JSON.stringify(searchData[0]['Poster']));
+      // console.log(typeof searchData);
+      // console.log(searchData.length);
+      // console.log(JSON.stringify(searchData[0]['Poster']));
       for (i = 0; i < searchData.length; i++) {
         var poster = JSON.stringify(searchData[i]['Poster'])
         var title = searchData[i]['Title'].replace("+", " ")
