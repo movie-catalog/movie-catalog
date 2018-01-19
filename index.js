@@ -1,35 +1,14 @@
-// const paragraphData = $("#data")
-// const currencyCode = $("#curreny-code")
-// const currencyName = $("#curreny-name")
-// const currencySymbol = $("#curreny-symbol")
 const mainRow = $("#main-row")
 const buttonSearch = $("#buttonSearch")
 const inputType = $("#inputType")
 const inputYear = $("#inputYear")
-// const currencySymbol = $("#curreny-symbol")
-
-// URL: https://restcountries.eu/rest/v2/alpha/id
-// {code: "IDR", name: "Indonesian rupiah", symbol: "Rp"}
-
-// fetch('https://restcountries.eu/rest/v2/alpha/ind')
-//   .then(response => response.json()).then(data => {
-//     // GET CURRENCY ONLY
-//     const currency = data.currencies[0]
-//
-//     // INSERT DATA INTO PARAGRAPH
-//     paragraphData.html(JSON.stringify(currency))
-//
-//     // PROPRAGATE DATA INTO INPUT BOXES
-//     currencyCode.val(currency.code)
-//     currencyName.val(currency.name)
-//     currencySymbol.val(currency.symbol)
-//   });
+const inputTitle = $("#inputTitle")
 
 function searchMovie(title = null, type = null, year = null) {
   var fetchUrl = `http://www.omdbapi.com/?`
   var isFirstParam = true
-
   var innerHtml = ``;
+
 
   if (title !== null && title !== "") {
     fetchUrl = fetchUrl + `s=${title}`
@@ -44,8 +23,7 @@ function searchMovie(title = null, type = null, year = null) {
   }
 
   fetchUrl = fetchUrl + `&apikey=fbe6dc54&`
-
-  console.log(fetchUrl);
+  fetchUrl.replace(" ", "+")
 
   fetch(fetchUrl)
     .then(response => response.json()).then(data => {
@@ -54,10 +32,10 @@ function searchMovie(title = null, type = null, year = null) {
       console.log(searchData.length);
       console.log(JSON.stringify(searchData[0]['Poster']));
       for (i = 0; i < searchData.length; i++) {
-        var poster = (searchData[i]['Poster'])
-        var title = (searchData[i]['Title'])
-        var year = (searchData[i]['Year'])
-        var type = (searchData[i]['Type'])
+        var poster = JSON.stringify(searchData[i]['Poster'])
+        var title = searchData[i]['Title'].replace("+", " ")
+        var year = searchData[i]['Year'].replace("+", " ")
+        var type = searchData[i]['Type'].replace("+", " ")
 
         if (poster === "N/A") {
           poster = "./assets/img/cover-not-available.jpg"
@@ -73,12 +51,16 @@ function searchMovie(title = null, type = null, year = null) {
                       <a href="#" class="btn btn-primary ml-2 mb-2">Learn More</a>
                     </div>
                   </div>
-                </div>
-                `
+                </div>`
       }
       mainRow.html(innerHtml)
     });
-
 }
 
-// $("#buttonSearch").click(alert('button clicked'));
+buttonSearch.click(function() {
+  var title = inputTitle.val();
+  var type = inputType.val()
+  var year = inputYear.val()
+
+  searchMovie(title, type, year)
+});

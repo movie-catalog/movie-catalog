@@ -53,6 +53,7 @@
 }
 
 .card-title {
+  height: 100px;
   font-family: sans-serif;
   font-size: 20px;
   font-weight: 600;
