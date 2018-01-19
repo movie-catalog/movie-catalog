@@ -3,6 +3,9 @@
 // const currencyName = $("#curreny-name")
 // const currencySymbol = $("#curreny-symbol")
 const mainRow = $("#main-row")
+const buttonSearch = $("#buttonSearch")
+const inputType = $("#inputType")
+const inputYear = $("#inputYear")
 // const currencySymbol = $("#curreny-symbol")
 
 // URL: https://restcountries.eu/rest/v2/alpha/id
@@ -32,11 +35,12 @@ function searchMovie(title = null, type = null, year = null) {
     fetchUrl = fetchUrl + `s=${title}`
     isFirstParam = false;
   }
-  if (type !== null && title !== "") {
-    (isFirstParam) ? (fetchUrl = fetchUrl + `type=${searchType}`) : (fetchUrl = fetchUrl + `&type=${searchType}`)
+  if (type !== null && type !== "") {
+    (isFirstParam) ? (fetchUrl = fetchUrl + `type=${type}`) : (fetchUrl = fetchUrl + `&type=${type}`)
   }
-  if (year !== null && title !== "") {
-    (isFirstParam) ? (fetchUrl = fetchUrl + `y=${searchYear}`) : (fetchUrl = fetchUrl + `&y=${searchYear}`)
+  if (year !== null && year !== "") {
+    (isFirstParam) ? (fetchUrl = fetchUrl + `y=${year}`) : (fetchUrl = fetchUrl + `&y=${year}`)
+
   }
 
   fetchUrl = fetchUrl + `&apikey=fbe6dc54&`
@@ -50,8 +54,11 @@ function searchMovie(title = null, type = null, year = null) {
       console.log(searchData.length);
       console.log(JSON.stringify(searchData[0]['Poster']));
       for (i = 0; i < searchData.length; i++) {
-        var poster = JSON.stringify(searchData[i]['Poster'])
-        var title = JSON.stringify(searchData[i]['Title'])
+        var poster = (searchData[i]['Poster'])
+        var title = (searchData[i]['Title'])
+        var year = (searchData[i]['Year'])
+        var type = (searchData[i]['Type'])
+
         if (poster === "N/A") {
           poster = "./assets/img/cover-not-available.jpg"
         }
@@ -61,30 +68,17 @@ function searchMovie(title = null, type = null, year = null) {
                   <div class="card">
                     <img class="card-img-top custom-res p-2" src=${poster} alt="Card image cap">
                     <div class="card-block">
-                      <h4 class="card-title pl-2">${title} </h4>
-                      <p class="card-text pl-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <a href="#" class="btn btn-primary  ml-2 mb-2">Go somewhere</a>
+                      <h4 class="card-title pl-2">${title}</h4>
+                      <p class="card-text pl-2">Release ${type}: ${year}</p>
+                      <a href="#" class="btn btn-primary ml-2 mb-2">Learn More</a>
                     </div>
                   </div>
                 </div>
                 `
       }
       mainRow.html(innerHtml)
-
-
     });
 
-  // fetch('')
-  //   .then(response => response.json()).then(data => {
-  //     // GET CURRENCY ONLY
-  //     const currency = data.currencies[0]
-  //
-  //     // INSERT DATA INTO PARAGRAPH
-  //     paragraphData.html(JSON.stringify(currency))
-  //
-  //     // PROPRAGATE DATA INTO INPUT BOXES
-  //     currencyCode.val(currency.code)
-  //     currencyName.val(currency.name)
-  //     currencySymbol.val(currency.symbol)
-  //   });
 }
+
+// $("#buttonSearch").click(alert('button clicked'));
