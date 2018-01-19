@@ -40,6 +40,7 @@ function searchMovie(title = null, type = null, year = null) {
   }
   if (year !== null && year !== "") {
     (isFirstParam) ? (fetchUrl = fetchUrl + `y=${year}`) : (fetchUrl = fetchUrl + `&y=${year}`)
+
   }
 
   fetchUrl = fetchUrl + `&apikey=fbe6dc54&`
@@ -79,20 +80,6 @@ function searchMovie(title = null, type = null, year = null) {
       mainRow.html(innerHtml)
     });
 
-
-  // fetch('')
-  //   .then(response => response.json()).then(data => {
-  //     // GET CURRENCY ONLY
-  //     const currency = data.currencies[0]
-  //
-  //     // INSERT DATA INTO PARAGRAPH
-  //     paragraphData.html(JSON.stringify(currency))
-  //
-  //     // PROPRAGATE DATA INTO INPUT BOXES
-  //     currencyCode.val(currency.code)
-  //     currencyName.val(currency.name)
-  //     currencySymbol.val(currency.symbol)
-  //   });
 }
 
-$("#buttonSearch").click(alert('button clicked'));
+// $("#buttonSearch").click(alert('button clicked'));
