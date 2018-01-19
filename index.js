@@ -25,7 +25,9 @@ const mainRow = $("#main-row")
 function searchMovie(title = null, type = null, year = null) {
   var fetchUrl = `http://www.omdbapi.com/?`
   var isFirstParam = true
+
   var innerHtml = ``;
+
   if (title !== null) {
     fetchUrl = fetchUrl + `s=${title}`
     isFirstParam = false;
@@ -43,14 +45,15 @@ function searchMovie(title = null, type = null, year = null) {
 
   fetch(fetchUrl)
     .then(response => response.json()).then(data => {
+
       var searchData = data.Search;
       console.log(typeof searchData);
-        console.log(searchData.length);
-        console.log(JSON.stringify(searchData[0]['Poster']));
+      console.log(searchData.length);
+      console.log(JSON.stringify(searchData[0]['Poster']));
       for (i = 0; i < searchData.length; i++) {
         var poster = JSON.stringify(searchData[i]['Poster'])
         var title = JSON.stringify(searchData[i]['Title'])
-        if(poster === "N/A"){
+        if (poster === "N/A") {
           poster = "./assets/img/cover-not-available.jpg"
         }
 
@@ -68,6 +71,8 @@ function searchMovie(title = null, type = null, year = null) {
                 `
       }
       mainRow.html(innerHtml)
+
+
     });
 
   // fetch('')
@@ -83,5 +88,4 @@ function searchMovie(title = null, type = null, year = null) {
   //     currencyName.val(currency.name)
   //     currencySymbol.val(currency.symbol)
   //   });
-
 }
