@@ -39,7 +39,7 @@ function searchMovie(title = null, type = null, year = null) {
         var year = searchData[i]['Year'].replace("+", " ")
         var type = searchData[i]['Type'].replace("+", " ")
 
-        if (poster === "N/A") {
+        if (poster === `"N/A"`) {
           poster = "./assets/img/cover-not-available.jpg"
         }
 
