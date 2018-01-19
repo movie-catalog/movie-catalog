@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-  <script src="./assets/header.js" charset="utf-8"></script>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
 </head>
 
 <body>
@@ -13,16 +14,18 @@
       <h1 class="display-3 text-center">MOVIE CATALOG</h1>
       <form>
         <div class="row mb-2">
-          <div class="col-12">
-            <input type="text" class="form-control" placeholder=Title>
-          </div>
+          <form id="searchForm">
+            <div class="col-12">
+              <input id="searchTitle" type="text" class="form-control" placeholder=Title...>
+            </div>
+          </form>
         </div>
         <div class="row">
           <div class="col-3">
-            <input type="text" class="form-control" placeholder=Type>
+            <input id="searchType" type="text" class="form-control" placeholder=Type>
           </div>
           <div class="col-3">
-            <input type="text" class="form-control" placeholder=Year>
+            <input id="searchYear" type="text" class="form-control" placeholder=Year>
           </div>
         </div>
       </form>
@@ -30,8 +33,15 @@
   </div>
 
   <div class="container">
-    <div class="row">
-      <!-- <div class="col-3 mb-2 ">
+    <<<<<<< HEAD <div id="movies" class="row">
+  </div>
+  </div>
+
+  <!-- <div class="col-3 mb-2 ">
+=======
+    <div class="row" id="main-row">
+      <!-- <div class="col-md-15 col-xs-3 mb-2">
+>>>>>>> d6f08ab5ea52df6767a89028ffda269451be61a9
         <div class="card">
           <img class="card-img-top custom-res p-2" src="http://ia.media-imdb.com/images/M/MV5BMTY4MzUyNTg5N15BMl5BanBnXkFtZTcwOTE5MDk0Mg@@._V1_SX300.jpg" alt="Card image cap">
           <div class="card-block">
@@ -41,122 +51,25 @@
           </div>
         </div>
       </div> -->
-      <div class="col-md-15 col-xs-3 mb-2">
-        <div class="card">
-          <img class="card-img-top custom-res p-2" src="http://ia.media-imdb.com/images/M/MV5BMTY4MzUyNTg5N15BMl5BanBnXkFtZTcwOTE5MDk0Mg@@._V1_SX300.jpg" alt="Card image cap">
-          <div class="card-block">
-            <h4 class="card-title pl-2">Card title</h4>
-            <p class="card-text pl-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary  ml-2 mb-2">Go somewhere</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-15 col-xs-3 mb-2">
-        <div class="card">
-          <img class="card-img-top custom-res p-2" src="http://ia.media-imdb.com/images/M/MV5BMTY4MzUyNTg5N15BMl5BanBnXkFtZTcwOTE5MDk0Mg@@._V1_SX300.jpg" alt="Card image cap">
-          <div class="card-block">
-            <h4 class="card-title pl-2">Card title</h4>
-            <p class="card-text pl-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary  ml-2 mb-2">Go somewhere</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-15 col-xs-3 mb-2">
-        <div class="card">
-          <img class="card-img-top custom-res p-2" src="http://ia.media-imdb.com/images/M/MV5BMTY4MzUyNTg5N15BMl5BanBnXkFtZTcwOTE5MDk0Mg@@._V1_SX300.jpg" alt="Card image cap">
-          <div class="card-block">
-            <h4 class="card-title pl-2">Card title</h4>
-            <p class="card-text pl-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary  ml-2 mb-2">Go somewhere</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-15 col-xs-3 mb-2">
-        <div class="card">
-          <img class="card-img-top custom-res p-2" src="http://ia.media-imdb.com/images/M/MV5BMTY4MzUyNTg5N15BMl5BanBnXkFtZTcwOTE5MDk0Mg@@._V1_SX300.jpg" alt="Card image cap">
-          <div class="card-block">
-            <h4 class="card-title pl-2">Card title</h4>
-            <p class="card-text pl-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary  ml-2 mb-2">Go somewhere</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-15 col-xs-3 mb-2">
-        <div class="card">
-          <img class="card-img-top custom-res p-2" src="http://ia.media-imdb.com/images/M/MV5BMTY4MzUyNTg5N15BMl5BanBnXkFtZTcwOTE5MDk0Mg@@._V1_SX300.jpg" alt="Card image cap">
-          <div class="card-block">
-            <h4 class="card-title pl-2">Card title</h4>
-            <p class="card-text pl-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary  ml-2 mb-2">Go somewhere</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-15 col-xs-3 mb-2">
-        <div class="card">
-          <img class="card-img-top custom-res p-2" src="http://ia.media-imdb.com/images/M/MV5BMTY4MzUyNTg5N15BMl5BanBnXkFtZTcwOTE5MDk0Mg@@._V1_SX300.jpg" alt="Card image cap">
-          <div class="card-block">
-            <h4 class="card-title pl-2">Card title</h4>
-            <p class="card-text pl-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary  ml-2 mb-2">Go somewhere</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-15 col-xs-3 mb-2">
-        <div class="card">
-          <img class="card-img-top custom-res p-2" src="https://images-na.ssl-images-amazon.com/images/M/MV5BNjljYzI2ODUtYTRhMi00OTdhLWI1YTAtM2ViZGViYTdlOGM4XkEyXkFqcGdeQXVyMjkyMDI4NTQ@._V1_SX300.jpg" alt="Card image cap">
-          <div class="card-block">
-            <h4 class="card-title pl-2">Card title</h4>
-            <p class="card-text pl-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary  ml-2 mb-2">Go somewhere</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-15 col-xs-3 mb-2">
-        <div class="card">
-          <img class="card-img-top custom-res p-2" src="http://ia.media-imdb.com/images/M/MV5BMTY4MzUyNTg5N15BMl5BanBnXkFtZTcwOTE5MDk0Mg@@._V1_SX300.jpg" alt="Card image cap">
-          <div class="card-block">
-            <h4 class="card-title pl-2">Card title</h4>
-            <p class="card-text pl-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary  ml-2 mb-2">Go somewhere</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-15 col-xs-3 mb-2">
-        <div class="card">
-          <img class="card-img-top custom-res p-2" src="http://ia.media-imdb.com/images/M/MV5BMTY4MzUyNTg5N15BMl5BanBnXkFtZTcwOTE5MDk0Mg@@._V1_SX300.jpg" alt="Card image cap">
-          <div class="card-block">
-            <h4 class="card-title pl-2">Card title</h4>
-            <p class="card-text pl-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary  ml-2 mb-2">Go somewhere</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-15 col-xs-3 mb-2">
-        <div class="card">
-          <img class="card-img-top custom-res p-2" src="https://images-na.ssl-images-amazon.com/images/M/MV5BMTY5MzkzODAzMl5BMl5BanBnXkFtZTcwOTc1NzcyMQ@@._V1_SX300.jpg" alt="Card image cap">
-          <div class="card-block">
-            <h4 class="card-title pl-2">Card title</h4>
-            <p class="card-text pl-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary  ml-2 mb-2">Go somewhere</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="text-center">
-      <ul class="pagination">
-        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-        <li class="page-item"><a class="page-link" href="#">1</a></li>
-        <li class="page-item"><a class="page-link" href="#">2</a></li>
-        <li class="page-item"><a class="page-link" href="#">3</a></li>
-        <li class="page-item"><a class="page-link" href="#">Next</a></li>
-      </ul>
-    </div>
+  </div>
+  <div class="text-center">
+    <ul class="pagination">
+      <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+      <li class="page-item"><a class="page-link" href="#">1</a></li>
+      <li class="page-item"><a class="page-link" href="#">2</a></li>
+      <li class="page-item"><a class="page-link" href="#">3</a></li>
+      <li class="page-item"><a class="page-link" href="#">Next</a></li>
+    </ul>
+  </div>
 
   </div>
 
   <footer>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="./assets/header.js" charset="utf-8"></script>
     <script src="./index.js" charset="utf-8"></script>
   </footer>
+
 </body>
 
 </html>
