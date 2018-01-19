@@ -6,6 +6,7 @@ const mainRow = $("#main-row")
 const buttonSearch = $("#buttonSearch")
 const inputType = $("#inputType")
 const inputYear = $("#inputYear")
+const inputTitle = $("#inputTitle")
 // const currencySymbol = $("#curreny-symbol")
 
 // URL: https://restcountries.eu/rest/v2/alpha/id
@@ -25,11 +26,12 @@ const inputYear = $("#inputYear")
 //     currencySymbol.val(currency.symbol)
 //   });
 
+
 function searchMovie(title = null, type = null, year = null) {
   var fetchUrl = `http://www.omdbapi.com/?`
   var isFirstParam = true
-
   var innerHtml = ``;
+
 
   if (title !== null && title !== "") {
     fetchUrl = fetchUrl + `s=${title}`
@@ -44,8 +46,7 @@ function searchMovie(title = null, type = null, year = null) {
   }
 
   fetchUrl = fetchUrl + `&apikey=fbe6dc54&`
-
-  console.log(fetchUrl);
+  fetchUrl.replace(" ", "+")
 
   fetch(fetchUrl)
     .then(response => response.json()).then(data => {
@@ -56,9 +57,9 @@ function searchMovie(title = null, type = null, year = null) {
       console.log(JSON.stringify(searchData[0]['Poster']));
       for (i = 0; i < searchData.length; i++) {
         var poster = JSON.stringify(searchData[i]['Poster'])
-        var title = JSON.stringify(searchData[i]['Title'])
-        var year = JSON.stringify(searchData[i]['Year'])
-        var type = JSON.stringify(searchData[i]['Type'])
+        var title = searchData[i]['Title'].replace("+", " ")
+        var year = searchData[i]['Year'].replace("+", " ")
+        var type = searchData[i]['Type'].replace("+", " ")
 
         if (poster === "N/A") {
           poster = "./assets/img/cover-not-available.jpg"
@@ -79,7 +80,17 @@ function searchMovie(title = null, type = null, year = null) {
       }
       mainRow.html(innerHtml)
     });
-
 }
 
-// $("#buttonSearch").click(alert('button clicked'));
+buttonSearch.click(function() {
+  var title = inputTitle.val();
+  var type = inputType.val()
+  var year = inputYear.val()
+  console.log(title);
+  console.log(typeof title);
+  console.log(type);
+  console.log(typeof type);
+  console.log(year);
+  console.log(typeof year);
+  searchMovie(title,type,year)
+});
