@@ -23,22 +23,21 @@
 function searchMovie(title = null, type = null, year = null) {
   var fetchUrl = `http://www.omdbapi.com/?`
   var isFirstParam = true
-
-    <<
-    << << < HEAD
   // PROPRAGATE DATA INTO INPUT BOXES
   currencyCode.val(currency.code)
   currencyName.val(currency.name)
   currencySymbol.val(currency.symbol)
-});*/ ===
-=== =
+}
+
 if (title !== null) {
   fetchUrl = fetchUrl + `s=${title}`
-  isFirstParam = false;
+  isFirstParam = false
 }
+
 if (type !== null) {
   (isFirstParam) ? (fetchUrl = fetchUrl + `type=${type}`) : (fetchUrl = fetchUrl + `&type=${type}`)
 }
+
 if (year !== null) {
   (isFirstParam) ? (fetchUrl = fetchUrl + `y=${year}`) : (fetchUrl = fetchUrl + `&y=${year}`)
 }
@@ -60,6 +59,3 @@ console.log(fetchUrl);
 //     currencyName.val(currency.name)
 //     currencySymbol.val(currency.symbol)
 //   });
-
-} >>>
->>> > a877da55eab52d9b1a1721916c0516f9971e9ace
