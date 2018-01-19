@@ -3,6 +3,9 @@
 // const currencyName = $("#curreny-name")
 // const currencySymbol = $("#curreny-symbol")
 const mainRow = $("#main-row")
+const buttonSearch = $("#buttonSearch")
+const inputType = $("#inputType")
+const inputYear = $("#inputYear")
 // const currencySymbol = $("#curreny-symbol")
 
 // URL: https://restcountries.eu/rest/v2/alpha/id
@@ -28,14 +31,14 @@ function searchMovie(title = null, type = null, year = null) {
 
   var innerHtml = ``;
 
-  if (title !== null) {
+  if (title !== null && title !== "") {
     fetchUrl = fetchUrl + `s=${title}`
     isFirstParam = false;
   }
-  if (type !== null) {
+  if (type !== null && type !== "") {
     (isFirstParam) ? (fetchUrl = fetchUrl + `type=${type}`) : (fetchUrl = fetchUrl + `&type=${type}`)
   }
-  if (year !== null) {
+  if (year !== null && year !== "") {
     (isFirstParam) ? (fetchUrl = fetchUrl + `y=${year}`) : (fetchUrl = fetchUrl + `&y=${year}`)
   }
 
@@ -53,6 +56,9 @@ function searchMovie(title = null, type = null, year = null) {
       for (i = 0; i < searchData.length; i++) {
         var poster = JSON.stringify(searchData[i]['Poster'])
         var title = JSON.stringify(searchData[i]['Title'])
+        var year = JSON.stringify(searchData[i]['Year'])
+        var type = JSON.stringify(searchData[i]['Type'])
+
         if (poster === "N/A") {
           poster = "./assets/img/cover-not-available.jpg"
         }
@@ -63,7 +69,7 @@ function searchMovie(title = null, type = null, year = null) {
                     <img class="card-img-top custom-res p-2" src=${poster} alt="Card image cap">
                     <div class="card-block">
                       <h4 class="card-title pl-2">${title} </h4>
-                      <p class="card-text pl-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <p class="card-text pl-2">Release ${type  }: ${year}</p>
                       <a href="#" class="btn btn-primary  ml-2 mb-2">Go somewhere</a>
                     </div>
                   </div>
@@ -71,9 +77,8 @@ function searchMovie(title = null, type = null, year = null) {
                 `
       }
       mainRow.html(innerHtml)
-
-
     });
+
 
   // fetch('')
   //   .then(response => response.json()).then(data => {
@@ -89,3 +94,5 @@ function searchMovie(title = null, type = null, year = null) {
   //     currencySymbol.val(currency.symbol)
   //   });
 }
+
+$("#buttonSearch").click(alert('button clicked'));
