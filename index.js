@@ -20,19 +20,19 @@
 //     currencySymbol.val(currency.symbol)
 //   });
 
-function searchMovie(title = null, type = null, year = null) {
+function searchMovie(searchTitle = null, type = null, year = null) {
   var fetchUrl = `http://www.omdbapi.com/?`
   var isFirstParam = true
 
-  if (title !== null) {
-    fetchUrl = fetchUrl + `s=${title}`
+  if (searchTitle !== null) {
+    fetchUrl = fetchUrl + `s=${searchTitle}`
     isFirstParam = false;
   }
   if (type !== null) {
-    (isFirstParam) ? (fetchUrl = fetchUrl + `type=${type}`) : (fetchUrl = fetchUrl + `&type=${type}`)
+    (isFirstParam) ? (fetchUrl = fetchUrl + `type=${searchType}`) : (fetchUrl = fetchUrl + `&type=${searchType}`)
   }
   if (year !== null) {
-    (isFirstParam) ? (fetchUrl = fetchUrl + `y=${year}`) : (fetchUrl = fetchUrl + `&y=${year}`)
+    (isFirstParam) ? (fetchUrl = fetchUrl + `y=${searchYear}`) : (fetchUrl = fetchUrl + `&y=${searchYear}`)
   }
 
   fetchUrl = fetchUrl + `&apikey=fbe6dc54&`
@@ -45,6 +45,40 @@ function searchMovie(title = null, type = null, year = null) {
       console.log(arrData);
       console.log(arrData.length);
     });
+
+  function getMovies(searchTitle) {
+    axios.get('http://www.omdbapi.com?s=' + searchTitle + '&apikey=97e22bf3')
+      .then((response) => {
+        console.log(response);
+        let movies = response.data.Search;
+        let output = '';
+        $.each(movies, (index, movie) => {
+          output += `
+              <div class="col-md-3">
+                <div class="well text-center">
+                  <img src="${movie.Poster}">
+                  <h5>${movie.Title}</h5>
+                  <a onclick="movieSelected('${movie.imdbID}')" class="btn btn-primary" href="#">Movie Details</a>
+                </div>
+              </div>
+            `;
+        });
+
+        $('#movies').html(output);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
+
+  $(document).ready(() => {
+    $('#searchForm').on('submit', (e) => {
+      let searchTitle = $('#searchTitle').val();
+      getMovies(searchTitle);
+      e.preventDefault();
+    });
+  });
 
   // fetch('')
   //   .then(response => response.json()).then(data => {
