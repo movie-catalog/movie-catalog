@@ -36,9 +36,9 @@
 }
 
 .jumbotron {
-  background-image: url(../movie-popcorn.jpg);
-  align-content: no repeat;
+  background-image: url(../movies2.jpg);
   background-size: 100%;
+  padding: 10px 10px 10px 10px;
 }
 
 .display-3 {
