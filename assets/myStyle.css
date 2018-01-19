@@ -58,7 +58,7 @@
   font-weight: 600;
   letter-spacing: 0.2px;
   text-align: left;
-  color: maroon;
+  color: grey;
   padding: 10px 10px 10px 10px;
 }
 
@@ -75,6 +75,6 @@
 }
 
 .btn {
-  background-color: maroon;
-  border-color: maroon;
+  background-color: grey;
+  border-color: grey;
 }
