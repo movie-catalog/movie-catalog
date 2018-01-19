@@ -43,13 +43,13 @@
 
 .display-3 {
   text-align: center;
-  min-width: 500px;
+  min-width: 100px;
   font-family: arial;
-  font-size: 60px;
+  font-size: 40px;
   font-weight: 1000;
-  letter-spacing: 5px;
-  color: white;
-  padding: 10px 10px 10px 10px;
+  letter-spacing: 10px;
+  color: black;
+  padding: 50px 0px 50px 50px;
 }
 
 .card-title {
