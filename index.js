@@ -46,6 +46,18 @@ function searchMovie(title = null, type = null, year = null) {
         console.log(arrData.length);
     });
 
-
+// fetch('')
+//   .then(response => response.json()).then(data => {
+//     // GET CURRENCY ONLY
+//     const currency = data.currencies[0]
+//
+//     // INSERT DATA INTO PARAGRAPH
+//     paragraphData.html(JSON.stringify(currency))
+//
+//     // PROPRAGATE DATA INTO INPUT BOXES
+//     currencyCode.val(currency.code)
+//     currencyName.val(currency.name)
+//     currencySymbol.val(currency.symbol)
+//   });
 
 }
