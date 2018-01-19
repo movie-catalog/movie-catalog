@@ -36,9 +36,9 @@
 }
 
 .jumbotron {
-  background-image: url(../redcurt2.jpg);
-  no repeat;
-  background-size: 70%;
+  background-image: url(../movie-popcorn.jpg);
+  align-content: no repeat;
+  background-size: 100%;
 }
 
 .display-3 {
