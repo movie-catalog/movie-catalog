@@ -1,31 +1,9 @@
-// const paragraphData = $("#data")
-// const currencyCode = $("#curreny-code")
-// const currencyName = $("#curreny-name")
-// const currencySymbol = $("#curreny-symbol")
+
 const mainRow = $("#main-row")
 const buttonSearch = $("#buttonSearch")
 const inputType = $("#inputType")
 const inputYear = $("#inputYear")
 const inputTitle = $("#inputTitle")
-// const currencySymbol = $("#curreny-symbol")
-
-// URL: https://restcountries.eu/rest/v2/alpha/id
-// {code: "IDR", name: "Indonesian rupiah", symbol: "Rp"}
-
-// fetch('https://restcountries.eu/rest/v2/alpha/ind')
-//   .then(response => response.json()).then(data => {
-//     // GET CURRENCY ONLY
-//     const currency = data.currencies[0]
-//
-//     // INSERT DATA INTO PARAGRAPH
-//     paragraphData.html(JSON.stringify(currency))
-//
-//     // PROPRAGATE DATA INTO INPUT BOXES
-//     currencyCode.val(currency.code)
-//     currencyName.val(currency.name)
-//     currencySymbol.val(currency.symbol)
-//   });
-
 
 function searchMovie(title = null, type = null, year = null) {
   var fetchUrl = `http://www.omdbapi.com/?`
@@ -86,11 +64,6 @@ buttonSearch.click(function() {
   var title = inputTitle.val();
   var type = inputType.val()
   var year = inputYear.val()
-  console.log(title);
-  console.log(typeof title);
-  console.log(type);
-  console.log(typeof type);
-  console.log(year);
-  console.log(typeof year);
+
   searchMovie(title,type,year)
 });
